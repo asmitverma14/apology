@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Only For You ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 {
+    color: #ff4b5c;
+}
+
+input {
+    padding: 12px;
+    width: 80%;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    margin: 15px 0;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    background: #ff4b5c;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff1e3c;
+}
+
+#error {
+    color: red;
+    display: none;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>🔐 Private Message</h1>
+    <p>Only you can unlock this ❤️</p>
+
+    <input type="password" id="password" placeholder="Enter our secret..." />
+    <br>
+    <button id="unlockBtn">Unlock</button>
+
+    <p id="error">Wrong password 😢 Try again</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const correctPassword = "jaan"; // change here if needed
+
+    const passwordInput = document.getElementById("password");
+    const unlockBtn = document.getElementById("unlockBtn");
+    const errorText = document.getElementById("error");
+
+    function checkPassword() {
+
+        if(passwordInput.value === correctPassword) {
+            window.location.href = "sorry.html";
+        } else {
+            errorText.style.display = "block";
+        }
+    }
+
+    unlockBtn.addEventListener("click", checkPassword);
+
+    passwordInput.addEventListener("keypress", function(e) {
+        if(e.key === "Enter") checkPassword();
+    });
+
+});
+</script>
+
+</body>
+</html>
